@@ -4,6 +4,9 @@ import java.io.*;
 import java.lang.reflect.Method;
 import java.util.Properties;
 
+/**
+ * 加载字节码文件，并执行里面的方法
+ */
 public class ClassloaderXlass {
 
     public static void main(String[] args) throws Exception {
