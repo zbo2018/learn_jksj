@@ -69,19 +69,24 @@ public class GCLogAnalysis {
          *      >java -Xmx1g -Xloggc:gc.1g.log -XX:+PrintGCDetails com.zbo.GCLogAnalysis
          *      >java -Xmx2g -Xloggc:gc.2g.log -XX:+PrintGCDetails com.zbo.GCLogAnalysis
          *      >java -Xmx4g -Xloggc:gc.4g.log -XX:+PrintGCDetails com.zbo.GCLogAnalysis
-         *      模拟不同gc 相同小的堆内存
+         *      模拟不同gc 相同的512m堆内存
          *      >java -XX:+UseSerialGC -Xms512m -Xmx512m -Xloggc:gc.serialGC.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps com.zbo.GCLogAnalysis
          *      >java -XX:+UseParallelGC -Xms512m -Xmx512m -Xloggc:gc.parallelGC.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps com.zbo.GCLogAnalysis
          *      >java -XX:+UseConcMarkSweepGC -Xms512m -Xmx512m -Xloggc:gc.concMarkSweepGC.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps com.zbo.GCLogAnalysis
          *      >java -XX:+UseG1GC -Xms512m -Xmx512m -Xloggc:gc.g1GC.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps com.zbo.GCLogAnalysis
-         *      模拟不同gc 相同大的堆内存
+         *      模拟不同gc 相同的4g堆内存
          *      >java -XX:+UseSerialGC -Xms4g -Xmx4g -Xloggc:gc.serialGC.4g.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps com.zbo.GCLogAnalysis
          *      >java -XX:+UseParallelGC -Xms4g -Xmx4g -Xloggc:gc.parallelGC.4g.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps com.zbo.GCLogAnalysis
          *      >java -XX:+UseConcMarkSweepGC -Xms4g -Xmx4g -Xloggc:gc.concMarkSweepGC.4g.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps com.zbo.GCLogAnalysis
          *      >java -XX:+UseG1GC -Xms4g -Xmx4g -Xloggc:gc.g1GC.4g.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps com.zbo.GCLogAnalysis
          *
          * 总结：
+         *      gc 和 堆内存的关系
          *      1、增大内存可以降低gc次数和频率，但也会增加gc的耗时
+         *      2、增大内存可以避免‘提升速率过快’的fullGC
+         *
+         *      gc之间的差异
+         *      1、回收速度 g1 > cms > parallel > serial
          */
     }
 
